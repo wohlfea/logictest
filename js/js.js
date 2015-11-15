@@ -18,4 +18,29 @@ function animateFirstToThird(childOfSpotOne, childOfSpotThree) {
   }, 980)
 }
 
-animateFirstToThird(red, yellow);
+function animateSecondToOne(childOfSpotOne, childOfSpotTwo) {
+  childOfSpotTwo.setAttribute('class', 'twoToOne');
+  childOfSpotOne.setAttribute('class', 'oneToTwo');
+  setTimeout(function(){
+    childOfSpotTwo.setAttribute('class', null);
+    childOfSpotOne.setAttribute('class', null);
+    spotOne.appendChild(childOfSpotTwo);
+    spotTwo.appendChild(childOfSpotOne);
+  }, 980)
+}
+
+function animateSecondToThird(childOfSpotTwo, childOfSpotThree) {
+  childOfSpotTwo.setAttribute('class', 'twoToThree');
+  childOfSpotThree.setAttribute('class', 'threeToTwo');
+  setTimeout(function(){
+    childOfSpotTwo.setAttribute('class', null);
+    childOfSpotThree.setAttribute('class', null);
+    spotTwo.appendChild(childOfSpotThree);
+    spotThree.appendChild(childOfSpotTwo);
+  }, 980)
+}
+
+// animateFirstToThird(red, yellow); //animateFirstToThird(spotOne.children[0], spotThree.children[0]); in console
+// animateSecondToOne(red, blue); //animateSecondToOne(spotOne.children[0], spotTwo.children[0]); in console
+animateSecondToThird(blue, yellow); //animateSecondToThird(spotTwo.children[0], spotThree.children[0]); in console
+
