@@ -50,7 +50,7 @@ function pickRandomShuffle() {
   }
 }
 
-function myLoop (i) {
+function shuffle (i) {
    setTimeout(function () {
       console.log(i);
       pickRandomShuffle();
