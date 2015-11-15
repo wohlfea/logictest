@@ -58,4 +58,4 @@ function shuffle (i) {
    }, 1000)
 };
 
-myLoop(10); //Argument is however many times you want to shuffle
+shuffle(10); //Argument is however many times you want to shuffle
