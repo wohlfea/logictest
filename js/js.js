@@ -4,8 +4,7 @@ var spotThree = document.getElementById('spotThree');
 var red = document.getElementById('red');
 var blue = document.getElementById('blue');
 var yellow = document.getElementById('yellow');
-var objArray = [];
-
+var funcArray = [animateFirstToThird, animateSecondToOne, animateSecondToThird];
 
 function animateFirstToThird(childOfSpotOne, childOfSpotThree) {
   childOfSpotOne.setAttribute('class', 'oneToThree');
@@ -40,7 +39,23 @@ function animateSecondToThird(childOfSpotTwo, childOfSpotThree) {
   }, 980)
 }
 
-// animateFirstToThird(red, yellow); //animateFirstToThird(spotOne.children[0], spotThree.children[0]); in console
-// animateSecondToOne(red, blue); //animateSecondToOne(spotOne.children[0], spotTwo.children[0]); in console
-animateSecondToThird(blue, yellow); //animateSecondToThird(spotTwo.children[0], spotThree.children[0]); in console
+function pickRandomShuffle() {
+  var randomNumber = Math.floor(Math.random()*funcArray.length);
+  if (randomNumber === 0) {
+    funcArray[0](spotOne.children[0], spotThree.children[0]);
+  } else if (randomNumber === 1) {
+    funcArray[1](spotOne.children[0], spotTwo.children[0]);
+  } else if (randomNumber === 2) {
+    funcArray[2](spotTwo.children[0], spotThree.children[0]);
+  }
+}
 
+function myLoop (i) {
+   setTimeout(function () {
+      console.log(i);
+      pickRandomShuffle();
+      if (--i) myLoop(i);
+   }, 1000)
+};
+
+myLoop(10); //Argument is however many times you want to shuffle
