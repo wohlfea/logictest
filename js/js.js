@@ -54,7 +54,7 @@ function shuffle (i) {
    setTimeout(function () {
       console.log(i);
       pickRandomShuffle();
-      if (--i) myLoop(i);
+      if (--i) shuffle(i);
    }, 1000)
 };
 
